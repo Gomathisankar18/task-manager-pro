@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Task Manager Pro</h1>
+
+
+<button onclick="logoutUser()">
+Logout
+</button>
+
+<div class="dashboard">
+    
+
+<div class="card dashboard-card">
+<h3>Total Tasks</h3>
+<p id="totalTasks">0</p>
+</div>
+
+<div class="card dashboard-card">
+<h3>Completed</h3>
+<p id="completedTasks">0</p>
+</div>
+
+<div class="card dashboard-card">
+<h3>Pending</h3>
+<p id="pendingTasks">0</p>
+</div>
+
+<div class="card dashboard-card">
+<h3>In Progress</h3>
+<p id="progressTasks">0</p>
+</div>
+
+</div>
+
+<div class="card form-card">
+
+<input
+type="text"
+id="taskInput"
+placeholder="Enter Task Title">
+
+<select id="category">
+
+<option value="Study">📚 Study</option>
+
+<option value="College">🏫 College</option>
+
+<option value="Internship">💼 Internship</option>
+
+<option value="Personal">🏠 Personal</option>
+
+</select>
+
+<select id="priority">
+
+<option value="High">🔴 High</option>
+
+<option value="Medium">🟠 Medium</option>
+
+<option value="Low">🟢 Low</option>
+
+</select>
+
+<select id="status">
+
+<option value="Pending">Pending</option>
+
+<option value="In Progress">In Progress</option>
+
+<option value="Completed">Completed</option>
+
+</select>
+
+<input
+type="date"
+id="dueDate">
+
+<button onclick="addTask()">
+Add Task
+</button>
+
+
+<button onclick="clearAllTasks()">
+Clear All
+</button>
+
+</div>
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Search Tasks..."
+onkeyup="searchTasks()">
+
+<h2>Your Tasks</h2>
+
+<div id="taskList"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
