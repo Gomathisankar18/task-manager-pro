@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
     res.send("Task Manager Backend Running Successfully!");
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.get("/test-add", (req, res) => {
 
     const sql = `
