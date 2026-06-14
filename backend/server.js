@@ -1,6 +1,14 @@
+const express = require("express");
+const cors = require("cors");
 const path = require("path");
+const db = require("./db");
+
+const app = express();
 
 app.use(express.static(path.join(__dirname, "../")));
+app.use(cors());
+app.use(express.json());
+
 app.get("/register", (req, res) => {
     res.sendFile(path.join(__dirname, "../register.html"));
 });
@@ -8,14 +16,6 @@ app.get("/register", (req, res) => {
 app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../login.html"));
 });
-const express = require("express");
-const cors = require("cors");
-const db = require("./db");
-
-const app = express();
-
-app.use(cors());
-app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send("Task Manager Backend Running Successfully!");
