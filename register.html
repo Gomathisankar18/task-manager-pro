@@ -47,6 +47,32 @@ color:white;
 cursor:pointer;
 }
 
+.link{
+text-align:center;
+margin-top:15px;
+}
+
+.link a{
+color:#06b6d4;
+text-decoration:none;
+font-weight:bold;
+}
+
+#message{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+font-size:16px;
+}
+
+.success{
+color:#22c55e;
+}
+
+.error{
+color:#ef4444;
+}
+
 </style>
 
 </head>
@@ -76,6 +102,13 @@ placeholder="Password">
 Register
 </button>
 
+<p id="message"></p>
+
+<div class="link">
+Already have an account?
+<a href="login.html">Login Here</a>
+</div>
+
 </div>
 
 <script>
@@ -90,6 +123,11 @@ document.getElementById("email").value;
 
 const password =
 document.getElementById("password").value;
+
+const message =
+document.getElementById("message");
+
+try{
 
 const response =
 await fetch(
@@ -110,7 +148,33 @@ password
 const data =
 await response.text();
 
-alert(data);
+if(data === "Registration Successful"){
+
+message.className = "success";
+message.innerText =
+"✅ Registration Successful! Redirecting to Login...";
+
+setTimeout(()=>{
+window.location.href =
+"login.html";
+},1500);
+
+}
+else{
+
+message.className = "error";
+message.innerText = "❌ " + data;
+
+}
+
+}
+catch(error){
+
+message.className = "error";
+message.innerText =
+"❌ Server Connection Failed";
+
+}
 
 }
 
